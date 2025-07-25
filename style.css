@@ -1,86 +1,140 @@
-/* General reset */
+/* Reset */
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
   line-height: 1.6;
+  padding-bottom: 50px;
 }
 
-/* Navigation */
+header {
+  background-color: #007acc;
+  padding: 1rem 0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
 .navbar {
   display: flex;
-  justify-content: center;
-  background-color: #333;
-  padding: 1em;
-  gap: 2em;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
 
-.navbar a {
-  color: white;
-  text-decoration: none;
+.brand {
+  font-size: 1.2rem;
+  color: #fff;
   font-weight: bold;
 }
 
-.navbar a:hover {
-  text-decoration: underline;
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
 }
 
-/* Hero Section */
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 0.5rem;
+  transition: background 0.3s, color 0.3s;
+}
+
+.nav-links a:hover {
+  background-color: #005f99;
+  border-radius: 5px;
+}
+
 .hero {
+  background: #e0f7ff;
   text-align: center;
-  padding: 50px 20px;
-  background-color: #f5f5f5;
+  padding: 2rem;
 }
 
-.hero img {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  margin-top: 20px;
-}
-
-/* Section Styling */
 section {
-  padding: 40px 20px;
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1rem 2rem;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 
-section h2 {
-  margin-bottom: 10px;
-  color: #333;
+h2 {
+  color: #007acc;
+  margin-bottom: 1rem;
 }
 
 ul {
-  list-style-type: none;
-  padding-left: 0;
+  margin-left: 1.5rem;
 }
 
 ul ul {
-  list-style-type: circle;
-  margin-left: 20px;
+  margin-top: 0.5rem;
 }
 
-/* Academics section */
-#academics {
-  background-color: #f9f9f9;
-}
-
-/* Contact Links */
-#contact a {
+a {
   color: #007acc;
-  text-decoration: none;
-}
-
-#contact a:hover {
   text-decoration: underline;
 }
 
-/* Footer */
+a:hover {
+  text-decoration: none;
+}
+
 footer {
   text-align: center;
-  padding: 20px;
-  background: #eee;
+  padding: 1rem;
+  background-color: #eee;
+  color: #555;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+/* About Me Image Styling */
+.about-img {
+  width: 250px;
+  height: auto;
+  display: block;
+  margin: 1rem auto;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+/* Section toggle */
+section:not(.hero):not(.active) {
+  display: none;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    margin-top: 0.5rem;
+  }
+
+  .brand {
+    margin-bottom: 0.5rem;
+  }
+
+  section {
+    padding: 1rem;
+  }
+
+  .about-img {
+    width: 90%;
+  }
 }

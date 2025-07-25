@@ -5,48 +5,57 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Jonny Chen | Personal Website</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    section {
+      display: none;
+    }
+    section.active {
+      display: block;
+    }
+  </style>
 </head>
 <body>
   <header>
     <nav class="navbar">
-      <a href="#about">About</a>
-      <a href="#passion">Passion</a>
-      <a href="#academics">Academics</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
+      <div class="brand">Jonny Chen</div>
+      <div class="nav-links">
+        <a href="#" onclick="showSection('about')">About</a>
+        <a href="#" onclick="showSection('academics')">Academics</a>
+        <a href="#" onclick="showSection('projects')">Projects</a>
+        <a href="#" onclick="showSection('contact')">Contact</a>
+      </div>
     </nav>
   </header>
 
-  <section class="hero">
+  <section class="hero active">
     <h1>Hello, I'm Jonny Chen</h1>
     <p>Aspiring Software Engineer</p>
-    <img src="picture.jpg" alt="My profile photo" />
   </section>
 
   <section id="about">
-    <h2>About Me</h2>
-    <p>
-Placeholder
-    </p>
-  </section>
+    <h2 style="text-align: center;">About Me</h2>
 
-  <section id="passion">
-    <h2>My Passion</h2>
+    <img src="picture.jpg" alt="Jonny Chen photo" class="about-img" />
+
     <p>
-     Placeholder
+      Placeholder
+    </p>
+
+    <p>
+      Placeholder
     </p>
   </section>
 
   <section id="academics">
     <h2>Academics</h2>
     <ul>
-      <li><strong>School:</strong>Placeholder</li>
-      <li><strong>Grade Level:</strong> Placeholder</li>
-      <li><strong>GPA:</strong>Placeholder</li>
+      <li><strong>School:</strong> Placeholder High School</li>
+      <li><strong>Grade Level:</strong> 12th Grade</li>
+      <li><strong>GPA:</strong> 3.5</li>
       <li><strong>Relevant Coursework:</strong>
         <ul>
-          <li></li>
-          <li></li>
+          <li>Placeholder</li>
+          <li>Placeholder</li>
         </ul>
       </li>
       <li><strong>Honors & Awards:</strong>Placeholder</li>
@@ -62,7 +71,6 @@ Placeholder
         </a>
         – Built with HTML and CSS, hosted on GitHub Pages.
       </li>
-      <!-- Add more projects here if needed -->
     </ul>
   </section>
 
@@ -76,5 +84,13 @@ Placeholder
   <footer>
     <p>&copy; 2025 Jonny Chen</p>
   </footer>
+
+  <script>
+    function showSection(id) {
+      const sections = document.querySelectorAll("section");
+      sections.forEach(sec => sec.classList.remove("active"));
+      document.getElementById(id).classList.add("active");
+    }
+  </script>
 </body>
 </html>
