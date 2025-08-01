@@ -5,65 +5,63 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Jonny Chen | Personal Website</title>
   <link rel="stylesheet" href="style.css" />
-  <style>
-    section {
-      display: none;
-    }
-    section.active {
-      display: block;
-    }
-  </style>
 </head>
 <body>
   <header>
     <nav class="navbar">
       <div class="brand">Jonny Chen</div>
       <div class="nav-links">
+        <a href="#" onclick="showSection('hero')">Home</a>
         <a href="#" onclick="showSection('about')">About</a>
         <a href="#" onclick="showSection('academics')">Academics</a>
         <a href="#" onclick="showSection('projects')">Projects</a>
         <a href="#" onclick="showSection('contact')">Contact</a>
+        <!-- Theme Switcher in Navbar -->
+        <div class="theme-controls">
+          <input type="color" id="bgColor" title="Background Color" />
+          <input type="color" id="textColor" title="Text Color" />
+          <button onclick="applyTheme()" class="theme-btn">Apply</button>
+        </div>
       </div>
     </nav>
   </header>
 
-  <section class="hero active">
+  <!-- Hero -->
+  <section class="hero active" id="hero">
     <h1>Hello, I'm Jonny Chen</h1>
     <p>Aspiring Software Engineer</p>
   </section>
 
+  <!-- About -->
   <section id="about">
     <div class="about-container">
       <img src="picture.jpg" alt="Jonny Chen photo" class="about-img" />
       <div class="about-text">
         <h2>About Me</h2>
         <p><strong>Hi! I'm Jonny Chen.</strong></p>
-        <p>
-          I'm a rising senior at High School for Dual Language and Asian Studies, currently exploring my passion for software engineering. I enjoy building websites, solving problems through code, and learning new technologies.
-        </p>
+        <p>I’m a rising senior at High School for Dual Language and Asian Studies. I enjoy building websites, solving problems through code, and learning new technologies.</p>
 
-        <!-- Where I'm From Section -->
         <div class="about-subsection">
           <h3>Where I'm From</h3>
           <img src="city.jpg" alt="City or map" class="sub-img" />
           <p>I live in New York City, where I’ve spent most of my life with my family of 4.</p>
         </div>
 
-        <!-- My Passion Section -->
         <div class="about-subsection">
           <h3>My Passion</h3>
-          <img src="coding.jpg" alt="Coding or passion" class="sub-img" />
-          <p>I have many things that I am passionate about, like coding, playing games, watching anime, and playing basketball.</p>
+          <img src="coding.jpg" alt="Coding passion" class="sub-img" />
+          <p>I’m passionate about coding, games, anime, and basketball.</p>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- Academics -->
   <section id="academics">
     <h2>Academics</h2>
     <ul>
       <li><strong>School:</strong> High School for Dual Language Asian Studies</li>
-      <li><strong>Grade Level:</strong> 12th Grade</li>
+      <li><strong>Grade:</strong> 12th Grade</li>
       <li><strong>GPA:</strong> 3.5</li>
       <li><strong>Relevant Coursework:</strong>
         <ul>
@@ -76,16 +74,14 @@
       <li><strong>Honors & Awards:</strong> Honor Roll</li>
     </ul>
 
-    <!-- Extracurriculars Section -->
     <div class="extracurriculars">
       <h3>Extracurriculars</h3>
       <img src="extracurricular.jpg" alt="Extracurricular activity" class="extra-img" />
-      <p>
-        I’m involved in several extracurriculars such as chess club, key club, red cross. In key club and red cross I participate in community service projects that help improve our neighborhood and support those in need.
-      </p>
+      <p>I participate in chess club, key club, and red cross. I also volunteer for community service projects.</p>
     </div>
   </section>
 
+  <!-- Projects -->
   <section id="projects">
     <h2>Projects</h2>
     <ul>
@@ -93,27 +89,34 @@
         <a href="https://github.com/JonnyChen311/personal-website" target="_blank">
           Project 1: Personal Website
         </a>
-        – Built with HTML and CSS, hosted on GitHub Pages.
+        – Built with HTML, CSS, and JavaScript.
       </li>
     </ul>
   </section>
 
+  <!-- Contact -->
   <section id="contact">
     <h2>Contact</h2>
     <p>Email: <a href="mailto:jonnychen05@gmail.com">jonnychen05@gmail.com</a></p>
     <p>GitHub: <a href="https://github.com/JonnyChen311" target="_blank">JonnyChen311</a></p>
-    <p>LinkedIn: <a href="https://www.linkedin.com/in/jonny-chen-109457370?trk=people-guest_people_search-card" target="_blank">Click here</a></p>
+    <p>LinkedIn: <a href="https://www.linkedin.com/in/jonny-chen-109457370" target="_blank">Click here</a></p>
   </section>
 
-  <footer>
+  <footer onmouseover="this.style.color='black'" onmouseout="this.style.color='#555'">
     <p>&copy; 2025 Jonny Chen</p>
   </footer>
 
   <script>
     function showSection(id) {
-      const sections = document.querySelectorAll("section");
-      sections.forEach(sec => sec.classList.remove("active"));
+      document.querySelectorAll("section").forEach(sec => sec.classList.remove("active"));
       document.getElementById(id).classList.add("active");
+    }
+
+    function applyTheme() {
+      const bg = document.getElementById("bgColor").value;
+      const text = document.getElementById("textColor").value;
+      document.body.style.backgroundColor = bg;
+      document.body.style.color = text;
     }
   </script>
 </body>
